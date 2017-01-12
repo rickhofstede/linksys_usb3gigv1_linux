@@ -61,7 +61,7 @@ $ modprobe r8152
 
 Make sure the driver gets loaded on system boot by rebuilding initramfs:
 ```
-$ update-initramfs
+$ update-initramfs -u
 ```
 
 You may now either (re)connect your USB Ethernet adapter.
