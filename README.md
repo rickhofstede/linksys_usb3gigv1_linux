@@ -40,7 +40,7 @@ To build the Linux driver, clone this repository first:
 $ git clone https://github.com/rickhofstede/linksys_usb3gigv1_linux.git
 ```
 
-Then, execute the following commands:
+Make sure your system features a build environment. This is typically provided by the `build-essential` meta-package. Then, execute the following commands:
 ```
 $ cd linksys_usb3gigv1_linux
 $ make
