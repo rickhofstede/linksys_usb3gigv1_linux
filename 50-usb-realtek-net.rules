@@ -30,4 +30,7 @@ ATTR{idVendor}=="2357", ATTR{idProduct}=="0601", ATTR{bConfigurationValue}!="$en
 # Nvidia
 ATTR{idVendor}=="0955", ATTR{idProduct}=="09ff", ATTR{bConfigurationValue}!="$env{REALTEK_NIC_MODE}", ATTR{bConfigurationValue}="$env{REALTEK_NIC_MODE}"
 
+# Linksys
+ATTR{idVendor}=="13b1", ATTR{idProduct}=="0041", ATTR{bConfigurationValue}!="$env{REALTEK_NIC_MODE}", ATTR{bConfigurationValue}="$env{REALTEK_NIC_MODE}"
+
 LABEL="usb_realtek_net_end"
