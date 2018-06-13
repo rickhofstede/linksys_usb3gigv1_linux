@@ -4,6 +4,7 @@
 
 ifneq ($(KERNELRELEASE),)
 	obj-m	 := r8152.o
+#	EXTRA_CFLAGS += -DRTL8152_S5_WOL
 else
 	KERNELDIR ?= /lib/modules/$(shell uname -r)/build
 	PWD :=$(shell pwd)
