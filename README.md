@@ -9,11 +9,11 @@ One of the few available USB 3.0-based Ethernet adapters, the Linksys USB3GIGV1,
 * `ethtool` hardly reports any statistics:
 
 ```
-# ethtool eth1
-Settings for eth1:
-         Current message level: 0x00000007 (7)
-                                drv probe link
-         Link detected: yes
+ethtool eth1
+# Settings for eth1:
+#         Current message level: 0x00000007 (7)
+#                                drv probe link
+#         Link detected: yes
 ```
 * Capturing packets on the respective interface in promiscuous mode using `tcpdump` does not show any packets.
 * `netstat -i` reports most Ethernet frames as errors.
@@ -37,31 +37,31 @@ The code in this repository solves the problem of a Linux system not connecting 
 
 To build the Linux driver, clone this repository first:
 ```
-$ git clone https://github.com/rickhofstede/linksys_usb3gigv1_linux.git
+git clone https://github.com/rickhofstede/linksys_usb3gigv1_linux.git
 ```
 
 Make sure your system features a build environment. This is typically provided by the `build-essential` meta-package. Then, execute the following commands:
 ```
-$ cd linksys_usb3gigv1_linux
-$ make
-$ make install
+cd linksys_usb3gigv1_linux
+make
+make install
 ```
 
 You may need superuser permissions for executing the `make install` command. The following steps are used to ensure that the new driver is loaded, rather than the system-default/old one. Note that these commands are for Ubuntu and (minor) adaptations may be needed for other distributions.
 
 Unload the existing module (e.g., `cdc_ether`):
 ```
-$ modprobe -r cdc_ether
+modprobe -r cdc_ether
 ```
 
 Load the new module (`r8152`):
 ```
-$ modprobe r8152
+modprobe r8152
 ```
 
 Make sure the driver gets loaded on system boot by rebuilding initramfs:
 ```
-$ update-initramfs -u
+update-initramfs -u
 ```
 
 You may now either (re)connect your USB Ethernet adapter.
